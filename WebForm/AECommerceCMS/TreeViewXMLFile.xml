@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+  <TreeViewItem NavigateUrl="AECommerceCMS/SB Admin Theme/create.aspx" Text="A1"/>
+  <TreeViewItem NavigateUrl="AECommerceCMS/SB Admin Theme/somecontrol.aspx" Text="A2">
+    <TreeViewItem NavigateUrl="AECommerceCMS/SB Admin Theme/somecontrol.aspx" Text="A21"/>
+    <TreeViewItem NavigateUrl="AECommerceCMS/SB Admin Theme/somecontrol.aspx" Text="A22"/>
+  </TreeViewItem>
+</Items>

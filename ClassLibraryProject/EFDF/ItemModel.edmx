@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WEBFORMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GID" />
+          </Key>
+          <Property Name="GID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WEBFORMS.dbo.GenderlinkedTopics' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GenderlinkedTopics">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Topic" Type="varchar" MaxLength="50" />
+          <Property Name="GID" Type="int" />
+        </EntityType>
+        <EntityType Name="GRIDSIMPLEEDIT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TBOX" Type="varchar" MaxLength="30" />
+          <Property Name="DD" Type="varchar" MaxLength="30" />
+          <Property Name="CB" Type="varchar" MaxLength="30" />
+          <Property Name="RB" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="ItemData">
+          <Key>
+            <PropertyRef Name="ProfileDetId" />
+          </Key>
+          <Property Name="ProfileDetId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="1000" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="1000" />
+          <Property Name="ItemType" Type="varchar" MaxLength="1000" />
+          <Property Name="AvailableCount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="ItemIntroDate" Type="datetime" />
+          <Property Name="Email" Type="varchar" MaxLength="1000" />
+          <Property Name="Gender" Type="varchar" MaxLength="1000" />
+          <Property Name="Continent" Type="varchar" MaxLength="1000" />
+          <Property Name="Country" Type="varchar" MaxLength="1000" />
+          <Property Name="ConfirmText1" Type="varchar" MaxLength="1000" />
+          <Property Name="ConfirmText2" Type="varchar" MaxLength="1000" />
+          <Property Name="InterestedTopicMulti" Type="varchar" MaxLength="1000" />
+          <Property Name="FileDoc" Type="varbinary(max)" />
+          <Property Name="ItemImage" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ItemInterests">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InterestedTopic" Type="varchar" MaxLength="500" />
+          <Property Name="ProfileDetId" Type="int" />
+        </EntityType>
+        <Association Name="fkir">
+          <End Role="ItemData" Type="Self.ItemData" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ItemInterests" Type="Self.ItemInterests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemData">
+              <PropertyRef Name="ProfileDetId" />
+            </Principal>
+            <Dependent Role="ItemInterests">
+              <PropertyRef Name="ProfileDetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="GL">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="GenderlinkedTopics" Type="Self.GenderlinkedTopics" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GID" />
+            </Principal>
+            <Dependent Role="GenderlinkedTopics">
+              <PropertyRef Name="GID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WEBFORMSModelStoreContainer">
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRIDSIMPLEEDIT" EntityType="Self.GRIDSIMPLEEDIT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemData" EntityType="Self.ItemData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemInterests" EntityType="Self.ItemInterests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GenderlinkedTopics" EntityType="Self.GenderlinkedTopics" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GenderlinkedTopics].[ID] AS [ID], 
+    [GenderlinkedTopics].[Topic] AS [Topic], 
+    [GenderlinkedTopics].[GID] AS [GID]
+    FROM [dbo].[GenderlinkedTopics] AS [GenderlinkedTopics]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fkir" Association="Self.fkir">
+            <End Role="ItemData" EntitySet="ItemData" />
+            <End Role="ItemInterests" EntitySet="ItemInterests" />
+          </AssociationSet>
+          <AssociationSet Name="GL" Association="Self.GL">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="GenderlinkedTopics" EntitySet="GenderlinkedTopics" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WEBFORMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GID" />
+          </Key>
+          <Property Name="GID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GenderlinkedTopics" Relationship="Self.GL" FromRole="Gender" ToRole="GenderlinkedTopics" />
+        </EntityType>
+        <EntityType Name="ItemData">
+          <Key>
+            <PropertyRef Name="ProfileDetId" />
+          </Key>
+          <Property Name="ProfileDetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ItemType" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="AvailableCount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="PublishDate" Type="DateTime" Precision="3" />
+          <Property Name="ItemIntroDate" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Continent" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmText1" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmText2" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="InterestedTopicMulti" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="FileDoc" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ItemImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="ItemInterests" Relationship="Self.fkir" FromRole="ItemData" ToRole="ItemInterests" />
+        </EntityType>
+        <EntityType Name="ItemInterest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InterestedTopic" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ProfileDetId" Type="Int32" />
+          <NavigationProperty Name="ItemData" Relationship="Self.fkir" FromRole="ItemInterests" ToRole="ItemData" />
+        </EntityType>
+        <EntityType Name="GenderlinkedTopic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Topic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GID" Type="Int32" />
+          <NavigationProperty Name="Gender" Relationship="Self.GL" FromRole="GenderlinkedTopics" ToRole="Gender" />
+        </EntityType>
+        <Association Name="GL">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="GenderlinkedTopics" Type="Self.GenderlinkedTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GID" />
+            </Principal>
+            <Dependent Role="GenderlinkedTopics">
+              <PropertyRef Name="GID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkir">
+          <End Role="ItemData" Type="Self.ItemData" Multiplicity="0..1" />
+          <End Role="ItemInterests" Type="Self.ItemInterest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ItemData">
+              <PropertyRef Name="ProfileDetId" />
+            </Principal>
+            <Dependent Role="ItemInterests">
+              <PropertyRef Name="ProfileDetId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WEBFORMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="ItemDatas" EntityType="Self.ItemData" />
+          <EntitySet Name="ItemInterests" EntityType="Self.ItemInterest" />
+          <EntitySet Name="GenderlinkedTopics" EntityType="Self.GenderlinkedTopic" />
+          <AssociationSet Name="GL" Association="Self.GL">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="GenderlinkedTopics" EntitySet="GenderlinkedTopics" />
+          </AssociationSet>
+          <AssociationSet Name="fkir" Association="Self.fkir">
+            <End Role="ItemData" EntitySet="ItemDatas" />
+            <End Role="ItemInterests" EntitySet="ItemInterests" />
+          </AssociationSet>
+          <EntitySet Name="GRIDSIMPLEEDITs" EntityType="WEBFORMSModel.GRIDSIMPLEEDIT" />
+        </EntityContainer>
+        <EntityType Name="GRIDSIMPLEEDIT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TBOX" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DD" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CB" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RB" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WEBFORMSModelStoreContainer" CdmEntityContainer="WEBFORMSEntities">
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="WEBFORMSModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GID" ColumnName="GID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemDatas">
+            <EntityTypeMapping TypeName="WEBFORMSModel.ItemData">
+              <MappingFragment StoreEntitySet="ItemData">
+                <ScalarProperty Name="ProfileDetId" ColumnName="ProfileDetId" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="AvailableCount" ColumnName="AvailableCount" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="ItemIntroDate" ColumnName="ItemIntroDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Continent" ColumnName="Continent" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="ConfirmText1" ColumnName="ConfirmText1" />
+                <ScalarProperty Name="ConfirmText2" ColumnName="ConfirmText2" />
+                <ScalarProperty Name="InterestedTopicMulti" ColumnName="InterestedTopicMulti" />
+                <ScalarProperty Name="FileDoc" ColumnName="FileDoc" />
+                <ScalarProperty Name="ItemImage" ColumnName="ItemImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemInterests">
+            <EntityTypeMapping TypeName="WEBFORMSModel.ItemInterest">
+              <MappingFragment StoreEntitySet="ItemInterests">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="InterestedTopic" ColumnName="InterestedTopic" />
+                <ScalarProperty Name="ProfileDetId" ColumnName="ProfileDetId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GenderlinkedTopics">
+            <EntityTypeMapping TypeName="WEBFORMSModel.GenderlinkedTopic">
+              <MappingFragment StoreEntitySet="GenderlinkedTopics">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="GID" ColumnName="GID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRIDSIMPLEEDITs">
+            <EntityTypeMapping TypeName="WEBFORMSModel.GRIDSIMPLEEDIT">
+              <MappingFragment StoreEntitySet="GRIDSIMPLEEDIT">
+                <ScalarProperty Name="RB" ColumnName="RB" />
+                <ScalarProperty Name="CB" ColumnName="CB" />
+                <ScalarProperty Name="DD" ColumnName="DD" />
+                <ScalarProperty Name="TBOX" ColumnName="TBOX" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

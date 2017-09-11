@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="RootHomePage"  description="">
+    <siteMapNode url="AECommerceCMS/SB Admin Theme/create" title="Parent1Page"  description="" >
+      <siteMapNode url="AECommerceCMS/SB Admin Theme/NewEntry" title="Child1Page" description=""></siteMapNode>
+      <siteMapNode url="AECommerceCMS/SB Admin Theme/Somecontrols" title="Child2Page" description=""></siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="AECommerceCMS/SB Admin Theme/Existingitem" title="Parent2Page"  description="" />
+  </siteMapNode>
+</siteMap>
+
+<!--Also the web.sitemap must be in root folder to be recognizable-->
+<!--When I visited the page in a browser, the URL got "cleaned" to http://localhost/Contact. Meaning, without the .aspx extension. I don't know which module is responsible for this. When I changed the entry in Web.sitemap by removing .aspx, the breadcrumbs were showing up on the page. So, the line looks like:
+
+<siteMapNode url="~/Contact" title="Contact"  description="Contact information" />
+edit: The package responsible for the URL rewriting is the FriendlyUrls Package (http://www.nuget.org/packages/Microsoft.AspNet.FriendlyUrls)-->

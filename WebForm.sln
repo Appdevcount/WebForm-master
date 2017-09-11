@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForm", "WebForm\WebForm.csproj", "{0F2414DF-C59A-4CEB-A1D0-0865E1DE40F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryProject", "ClassLibraryProject\ClassLibraryProject.csproj", "{5B19465E-2423-44E7-B66D-B3EF316BE755}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETIdentityOwinMiddlewareAuth", "ASPNETIdentityOwinMiddlewareAuth\ASPNETIdentityOwinMiddlewareAuth.csproj", "{DB3EBAD9-81A9-4FF2-BC83-5B0A650245DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPNETIdentityCLP", "ASPNETIdentityCLP\ASPNETIdentityCLP.csproj", "{B5FA881D-96FF-46D2-8594-3A80E6CD4F93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuPlus", "MenuPlus\MenuPlus.csproj", "{8A51702E-0C27-44DC-93CE-3EF8ACF2C849}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ALTE", "ALTE\ALTE.csproj", "{05EB53C3-FFE1-412B-B634-0D75C21101EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F2414DF-C59A-4CEB-A1D0-0865E1DE40F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2414DF-C59A-4CEB-A1D0-0865E1DE40F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2414DF-C59A-4CEB-A1D0-0865E1DE40F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2414DF-C59A-4CEB-A1D0-0865E1DE40F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B19465E-2423-44E7-B66D-B3EF316BE755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B19465E-2423-44E7-B66D-B3EF316BE755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B19465E-2423-44E7-B66D-B3EF316BE755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B19465E-2423-44E7-B66D-B3EF316BE755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB3EBAD9-81A9-4FF2-BC83-5B0A650245DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB3EBAD9-81A9-4FF2-BC83-5B0A650245DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB3EBAD9-81A9-4FF2-BC83-5B0A650245DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB3EBAD9-81A9-4FF2-BC83-5B0A650245DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5FA881D-96FF-46D2-8594-3A80E6CD4F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5FA881D-96FF-46D2-8594-3A80E6CD4F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5FA881D-96FF-46D2-8594-3A80E6CD4F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5FA881D-96FF-46D2-8594-3A80E6CD4F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A51702E-0C27-44DC-93CE-3EF8ACF2C849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A51702E-0C27-44DC-93CE-3EF8ACF2C849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A51702E-0C27-44DC-93CE-3EF8ACF2C849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A51702E-0C27-44DC-93CE-3EF8ACF2C849}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05EB53C3-FFE1-412B-B634-0D75C21101EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05EB53C3-FFE1-412B-B634-0D75C21101EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05EB53C3-FFE1-412B-B634-0D75C21101EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05EB53C3-FFE1-412B-B634-0D75C21101EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8455EED1-E334-4967-86BF-17636CBE2AB9}
+	EndGlobalSection
+EndGlobal

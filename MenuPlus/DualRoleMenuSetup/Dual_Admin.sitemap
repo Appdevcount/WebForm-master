@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Admin/AdminHomePage.aspx" title="root" description="Admin Home Page">
+
+    <siteMapNode url="AdminPage1.aspx" title="Home" description="" />
+
+    <siteMapNode url="AdminFunctions.aspx" title="AdminFunctions">
+
+      <siteMapNode url="AddUser.aspx" title="Add User" />
+
+      <siteMapNode url="DeleteUser.aspx" title="Delete User" />
+
+      <siteMapNode url="UpdateUser.aspx" title ="Update User"/>
+
+    </siteMapNode>
+
+  </siteMapNode>
+</siteMap>

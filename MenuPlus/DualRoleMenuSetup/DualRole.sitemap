@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/" title="root" description="Site Map Root">
+
+    <siteMapNode siteMapFile="~/Navigation/Admin.sitemap" />
+
+    <siteMapNode siteMapFile="~/Navigation/User.sitemap" />
+
+  </siteMapNode>
+</siteMap>

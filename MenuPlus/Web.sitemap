@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="Container"  description="ContainerDesc">
+    <siteMapNode url="" title="ParentC1"  description="" >
+      <siteMapNode url="~/MenuPages/Page1.aspx" title="Child1" description="" />
+      <siteMapNode url="~/MenuPages/Page2.aspx" title="Child2" description="" />
+    </siteMapNode>
+    <siteMapNode url="~/MenuPages/Page3.aspx" title="Parent2"  description="" />
+    <siteMapNode url="~/MenuPages/Page4.aspx" title="Parent3"  description="" />
+  </siteMapNode>
+
+</siteMap>

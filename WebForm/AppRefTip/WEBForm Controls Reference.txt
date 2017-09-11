@@ -1,0 +1,10 @@
+﻿Unobtrusive Validation
+==========================
+validated using 
+validation controls (RequiredFieldValidator and RegularExpressionValidator). 
+These controls automatically use unobtrusive validation. 
+Unobtrusive validation allows the validation controls to use JavaScript for client-side validation logic, 
+which means the page does not require a trip to the server to be validated. 
+By default, unobtrusive validation is included in the Web.config file based on the following configuration setting:
+
+<add key="ValidationSettings:UnobtrusiveValidationMode" value="WebForms" />

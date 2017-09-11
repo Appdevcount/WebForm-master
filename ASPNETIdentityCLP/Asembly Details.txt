@@ -1,0 +1,14 @@
+﻿1) Add Microsoft.AspNet.Identity.EntityFramework.2.2.1 from Nuget
+It automatically added dependencies 
+EntityFramework 6.1.0  
+Microsoft.AspNet.Identity.Core.2.2.1
+
+2)Add Microsoft.AspNet.Identity.Owin.2.2.1 from Nuget 
+It automatically added dependencies
+Microsoft.Owin
+Microsoft.Security.OAuth
+Microsoft.Security.Cookies
+
+3)Add Microsoft.Owin.Host.SystemWeb  from Nuget
+
+4)Added System.Web manually from existing Add reference Assembly FOR HttpContext.Current

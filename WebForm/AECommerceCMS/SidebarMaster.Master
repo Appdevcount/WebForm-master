@@ -1,0 +1,107 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SidebarMaster.master.cs" Inherits="WebForm.AECommerceCMS.SidebarMaster" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Responsive</title>
+    <!-- Bootstrap -->
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="..Content/CustomStyles.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <%--<title></title>--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="navbar navbar-default navbar-fixed-top">
+                <%--Navigation within Container--%>
+                <div class="container">
+
+                    <%--Header Toggle Button--%>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#" class="navbar-brand">
+                            <span>
+                                <img src="Content/Images/OG.png" alt="t" height="15" width="40" /></span>   One Global VAS Station</a>
+                    </div>
+                    <%--Navigation Buttons--%>
+                    <div class="navbar-collapse collapse">
+                        <%--Right Main Navigation--%>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                        <%--Left User Navigation--%>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#">SignIn</a></li>
+                            <li><a href="#">SignUp</a></li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+
+            
+            <div class="container" style="margin-top: 50px">
+
+
+                <div class="col-xs-3" style="background-color: grey">
+                    <nav id="SideNavbar">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active" ><a href="#divDesert">Desert</a></li>
+                            <li><a href="#divLighthouse">Lighthouse</a></li>
+                            <li><a href="#divTulips">Tulips</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Animals <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#divJellyfish">Jellyfish</a></li>
+                                    <li><a href="#divPenguins">Penguins</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </nav>
+                </div>
+                <div class="col-xs-9">
+                    <%--            <div class="container" style="margin-top: 50px">--%>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <%--</div>--%>
+                </div>
+
+            </div>
+        </div>
+        <footer>
+            <div class="container navbar-fixed-bottom ">
+                <hr style="border: solid thick" />
+                <p>&copy; ECommerce WEBFORM CMS</p>
+            </div>
+        </footer>
+    </form>
+</body>
+</html>
